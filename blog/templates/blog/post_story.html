@@ -1,0 +1,70 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<html>
+<head>
+
+<font color=black size=12>ANT -c2(beta_model antx2-v1.0) </font>
+
+</style>
+</head>
+
+
+</br></br></br></br></br>
+
+<body>
+
+
+<div style="text-align:center">
+
+
+  <style>
+  .search_window {
+  	display: inline-block;
+  	width: 366px; height: 34px;
+  	border: 3px solid #2b8cc8;
+  	background: white;
+  }
+  .input_text {
+  	width: 348px; height: 21px;
+  	margin: 6px 0 0 9px;
+  	border: 0;
+  	line-height: 21px;
+  	font-weight: bold;
+  	font-size: 16px;
+  	outline: none;
+  }
+
+
+  .sch_smit {
+  	width: 100px; height: 40px;
+  	margin: 0; border: 0;
+  	vertical-align: top;
+  	background: #2b8cc8;
+  	color: white;
+  	font-weight: bold;
+  	border-radius: 1px;
+  	cursor: pointer;
+  }
+  .sch_smit:hover {
+  	background: #2b8cc8;
+  }
+  </style>
+
+<strong>TITLE:</strong></br>
+  <span class='search_window'>
+  	<input type='text' class='input_text' placeholder="검색어를 입력하세요, ex)건축허가 신청서 "/>
+  </span>
+  <button type='submit' class='sch_smit'>prediction</button>
+
+</div>
+<br /><br />
+
+
+
+
+</body>
+</html>
+
+{% endblock content %}

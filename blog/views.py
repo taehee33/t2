@@ -12,6 +12,9 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
 
+def post_story(request):
+    return render(request, 'blog/post_story.html', {})
+
 
 
 def post_list(request):
