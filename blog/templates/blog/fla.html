@@ -1,0 +1,146 @@
+
+{% extends 'blog/base.html' %}
+{% block content %}
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>ANT-c2 beta</title>
+
+       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+
+
+<div class="container">
+
+
+  <table class = "table">
+    <tr>
+      <td><h4>ANT-c2(지방자치단체 평가폐기 학습모델_v1.1)</h4></td>
+      <td style="text-align: right">
+        <a href="http://www.facebook.com/storyant2014/">
+      </td>
+    </tr>
+  </table>
+
+  <form  action="" method="post">{% csrf_token %} <!-- role="form">-->
+    {{ form.csrf }}
+    <div class="form-group">
+      <label for="name">TITLE:</label>
+      <input type="text" class="form-control" id="dataname" name="dataname" placeholder="기록물철 제목을 입력하세요." value="{{request.form.dataname}}" autocomplete=off>
+      <br>
+    </div>
+
+
+    <button type="submit" class="btn btn-success" value="Submit">Prediction</button>
+
+
+    </form>
+
+
+  <br>
+
+  {% with messages as get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+
+  {% for message in messages %}
+      {% if "Error" not in message.1 %}
+          {% if predictions %}
+            <div class="alert alert-info">
+              추천 보존기간: <strong>{{predictions}}</strong>
+          {% endif %}  <br>
+          {% if prob > 0 %}
+          추천 정확도: <strong>{{prob}}%</strong></div>
+          {% endif %}
+      {% endif %}
+
+      {% if "Error" in message.1 %}
+            <div class="alert alert-warning">{{ message.1 }}
+                  </div>
+      {% endif %}
+  {% endfor %}
+
+      {% endif %}
+  {% endwith %}
+
+
+
+
+
+<!--  -->
+
+
+          <div class="alert alert-info" role="alert">
+              추천 보존기간: <strong>{{predictions}}</strong>
+             <br>
+            추천 정확도: <strong>{{prob}}%</strong>
+          </div>
+
+                      </br>    </br>
+
+
+
+
+                      <h1>Contact Us</h1>
+                      <form method="post">
+                          {% csrf_token %}
+                          {{ form.as_p }}
+                          <div class="form-actions">
+                            <button type="submit">Send</button>
+                          </div>
+                      </form>
+
+
+
+
+<!--
+          </br>
+
+
+
+
+
+          <style>
+          p { margin:0; color:blue; }
+          div,p { margin-left:10px; }
+          span { color:red; }
+        </style>
+
+        <script src="http://code.jquery.com/jquery-latest.js">
+
+        </script>
+      </head> <body>
+        <p>Type 'correct' to validate.</p>
+        <form action="javascript:alert('success!');">
+          <div> <input type="text" />
+             <input type="submit" />
+           </div> </form> <span></span>
+           <script> $("form").submit(function() { if ($("input:first").val() == "correct")
+           { $("span").text("Validated...").show(); return true; }
+            $("span").text("Not valid!").show().fadeOut(30000); return false; });
+             </script>
+
+-->
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
